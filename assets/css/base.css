@@ -1,0 +1,255 @@
+:root {
+    --sortbar-height: 46px;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --primary-color: #f64c2e;
+    --primary-color-rgba: rgb(238, 132, 103);
+    --border-color: #dbdbdb;
+    --navbar-height: 37px;
+    --header-height: 120px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+}
+
+* {
+    /* kế thừa */
+    box-sizing: inherit;
+}
+
+html {
+    /* 10px */
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+
+/* RESPÓNSIVE */
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+
+/* ==========test============ */
+
+.grid__column-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+.grid__column-10 {
+    width: 83.3333%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+/* ANIMATION */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+
+/* END */
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: fadeIn linear 0.1s;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    --growth-from: 0.7;
+    --groeth-to: 1;
+    position: relative;
+    margin: auto;
+    z-index: 1;
+    animation: growth linear 0.1s;
+}
+
+.modal__inner {}
+
+
+/* BUTTON STYLE */
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 124px;
+    min-height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    padding: 0 12px;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    line-height: 1.4rem;
+    /*  */
+}
+
+
+/* SElect input */
+
+.select-input {
+    position: relative;
+    min-width: 200px;
+    padding: 0 12px;
+    min-height: 34px;
+    border-radius: 2px;
+    outline: none;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+}
+
+.select-input__label {
+    font-size: 1.4rem;
+}
+
+.select-input-icon {
+    font-size: 1.2rem;
+    color: #4A4A4A;
+    position: relative;
+    top: 1px;
+}
+
+.select-input__list {
+    list-style: none;
+    padding: 10px 16px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 24.5px;
+    border-radius: 3px;
+    background-color: var(--white-color);
+    display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.select-input__link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    display: block;
+    padding: 5px 0;
+    position: relative;
+    transition: right linear 0.1s;
+    right: 0;
+}
+
+.select-input__link:hover {
+    right: -2px;
+    color: var(--primary-color);
+}
+
+
+/* ====nút bấm hover bình thường====== */
+
+.btn.btn--normal:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn.btn-size-s {
+    min-height: 32px;
+    font-size: 1.2rem;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* QUY tắc đặt class trực tiếp */
+
+.btn.btn--primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.btn.btn--disable {
+    color: #949494;
+    cursor: default;
+    background-color: #c3c3c3;
+}
+
+
+/* ======pagination */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination-item {
+    margin: 0 1px;
+}
+
+.pagination-item--active .pagination-item__link {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item--active .pagination-item__link:hover {
+    opacity: 0.9;
+}
+
+.pagination-item__link {
+    --height: 30px;
+    display: block;
+    line-height: var(--height);
+    text-align: center;
+    font-size: 1.6rem;
+    min-width: 40px;
+    height: var(--height);
+    text-decoration: none;
+    color: #939393;
+    border-radius: 2px;
+}
